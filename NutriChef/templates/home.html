@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to NutriChef</h1>
+    {% for recipe in recipes %}
+        <div>
+            <h2>{{ recipe.title }}</h2>
+            <p>{{ recipe.ingredients }}</p>
+            <a href="{{ url_for('recipe', recipe_id=recipe.id) }}">View Recipe</a>
+        </div>
+    {% endfor %}
+</body>
+</html>

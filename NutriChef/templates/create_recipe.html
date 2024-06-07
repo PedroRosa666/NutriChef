@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Recipe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Create New Recipe</h1>
+    <form method="POST" action="{{ url_for('new_recipe') }}">
+        {{ form.hidden_tag() }}
+        {{ form.title.label }} {{ form.title(size=32) }}<br>
+        {{ form.ingredients.label }} {{ form.ingredients(rows=5, cols=32) }}<br>
+        {{ form.instructions.label }} {{ form.instructions(rows=5, cols=32) }}<br>
+        {{ form.nutrition_info.label }} {{ form.nutrition_info(rows=5, cols=32) }}<br>
+        {{ form.submit() }}
+    </form>
+</body>
+</html>

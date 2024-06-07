@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ recipe.title }}{% endblock %}
+{% block content %}
+<h1>{{ recipe.title }}</h1>
+<p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+<p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+<p><strong>Nutrition Information:</strong> {{ recipe.nutrition_info }}</p>
+{% if current_user.is_authenticated %}
+    <form method="POST" action="{{ url_for('favorite_recipe', recipe_id=recipe.id) }}">
+        <button type="submit">Add to Favorites</button>
+    </form>
+    <a href="{{ url_for('rate_recipe', recipe_id=recipe.id) }}">Rate this Recipe</a>
+{% endif %}
+{% endblock %}
